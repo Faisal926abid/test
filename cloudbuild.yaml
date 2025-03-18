@@ -1,11 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'docker.io/sultanulkabir/flask-app', '.']
+    args: ['build', '-t', 'docker.io/sultanulkabir/flask-app:latest', '.']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'docker.io/sultanulkabir/flask-app']
+    args: ['push', 'docker.io/sultanulkabir/flask-app:latest']
 
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['compute', 'instances', 'update-container', 'flask-instance', '--zone=us-central1-a', '--container-image', 'docker.io/sultanulkabir/flask-app']
+    args: ['compute', 'instances', 'update-container', 'flask-instance', 
+           '--zone=us-central1-a', '--container-image', 'docker.io/sultanulkabir/flask-app:latest']
 
 timeout: '1200s'
