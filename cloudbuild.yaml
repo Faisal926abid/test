@@ -4,7 +4,7 @@ options:
 steps:
   # Step 1: Authenticate with Docker Hub
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['login', '-u', 'sultanulkabir', '-p', '']
+    args: ['login', '-u', 'sultanulkabir', '-p', 'Dhaka0781!']
 
   # Step 2: Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
