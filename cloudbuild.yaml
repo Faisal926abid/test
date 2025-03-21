@@ -8,15 +8,15 @@ steps:
 
   # Step 2: Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'docker.io/sultanulkabir/flask-app:latest', '.']
+    args: ['build', '-t', 'docker.io/sultanulkabir/test1:latest', '.']
 
   # Step 3: Push the Docker image to Docker Hub
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'docker.io/sultanulkabir/flask-app:latest']
+    args: ['push', 'docker.io/sultanulkabir/test1:latest']
 
   # Step 4: Update the GCP Compute Engine instance with the new container image
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['compute', 'instances', 'update-container', 'flask-instance', 
-           '--zone=us-central1-c', '--container-image', 'docker.io/sultanulkabir/flask-app:latest']
+    args: ['compute', 'instances', 'update-container', 'flask10', 
+           '--zone=us-central1-c', '--container-image', 'docker.io/sultanulkabir/test1:latest']
 
 timeout: '1200s'
